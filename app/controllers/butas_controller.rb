@@ -1,0 +1,2 @@
+class ButasController < ApplicationController
+end
