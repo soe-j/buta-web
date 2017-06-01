@@ -1,5 +1,5 @@
 class ToppingLogsController < ApplicationController
-  protect_from_forgery except: [:index, :create]
+  protect_from_forgery except: [:create]
 
   def index
     pig = Pig.find_by(name: params[:pig_name])
