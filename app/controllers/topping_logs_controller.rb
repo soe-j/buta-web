@@ -3,7 +3,11 @@ class ToppingLogsController < ApplicationController
 
   def index
     pig = Pig.find_by(name: params[:pig_name])
-    topping_logs = pig.topping_logs.offset(params[:offset]).select([:id, :topping_id, :mashi])
+    topping_logs = pig.topping_logs\
+      .offset(params[:offset]).order(:id)\
+      .joins(:topping)\
+      .select([:id, 'name as topping_name', :mashi])
+
     render json: topping_logs
   end
 
