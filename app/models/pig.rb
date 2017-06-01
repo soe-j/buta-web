@@ -1,3 +1,3 @@
 class Pig < ApplicationRecord
-  has_many :topping_log
+  has_many :topping_logs
 end
