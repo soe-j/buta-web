@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170601120140) do
   create_table "topping_logs", force: :cascade do |t|
     t.bigint "pig_id"
     t.bigint "topping_id"
+    t.integer "mashi"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pig_id"], name: "index_topping_logs_on_pig_id"
