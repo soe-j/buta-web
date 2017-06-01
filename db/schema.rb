@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601115729) do
+ActiveRecord::Schema.define(version: 20170601120140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,21 @@ ActiveRecord::Schema.define(version: 20170601115729) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "topping_logs", force: :cascade do |t|
+    t.bigint "pig_id"
+    t.bigint "topping_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pig_id"], name: "index_topping_logs_on_pig_id"
+    t.index ["topping_id"], name: "index_topping_logs_on_topping_id"
+  end
+
   create_table "toppings", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "topping_logs", "pigs"
+  add_foreign_key "topping_logs", "toppings"
 end
