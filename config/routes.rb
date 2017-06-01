@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   root 'pigs#index'
   get 'pigs/:name', to: 'pigs#show'
+
+  get 'toppings/index'
+  get 'toppings/create'
 end
