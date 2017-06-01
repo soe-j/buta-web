@@ -1,1 +1,6 @@
-show pig
+<% if @pig %>
+  id: <%= @pig.id %>
+  name: <%= @pig.name %>
+<% else %>
+  no pig
+<% end %>

@@ -4,5 +4,6 @@ class PigsController < ApplicationController
   end
 
   def show
+    @pig = Pig.find_by(name: params[:name])
   end
 end
