@@ -1,6 +1,13 @@
 <% if @pig %>
-  id: <%= @pig.id %>
-  name: <%= @pig.name %>
+  <div>
+    id: <%= @pig.id %>
+  </div>
+  <div>
+    name: <%= @pig.name %>
+  </div>
+  <div>
+    default_img: <%= "#{@pig.name}-#{@pig.level}-default.gif" %>
+  </div>
 <% else %>
   no pig
 <% end %>
