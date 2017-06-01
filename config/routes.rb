@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'pigs#index'
   get 'pigs/:name', to: 'pigs#show'
 
-  get 'toppings/index'
-  get 'toppings/create'
+  get  'pigs/:pig_name/topping_logs', to: 'topping_logs#index'
+  post 'pigs/:pig_name/topping_logs', to: 'topping_logs#create'
 end
