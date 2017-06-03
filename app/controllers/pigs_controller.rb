@@ -6,6 +6,7 @@ class PigsController < ApplicationController
   def show
     @pig = Pig.find_by(name: params[:name])
     gon.pig_name = @pig.name
+    gon.pig_level = @pig.level
     gon.offset = ToppingLog.all.count
   end
 end
