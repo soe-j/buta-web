@@ -4,9 +4,12 @@ $(document).on('turbolinks:load', function(){
   var offset = gon.offset;
   var more = 0;
   var topping = "";
+  var transformMode = 0;
 
   setInterval(function () {
-    if (more > 0) {
+    if (transformMode) {
+      transform();
+    } else if (more > 0) {
       eat();
       more -= 1;
     } else {
@@ -14,7 +17,9 @@ $(document).on('turbolinks:load', function(){
         if (log) {
           topping = log.topping_name;
           eat();
-          gon.pig_level = log.pig_level;
+          if(gon.pig_level != log.pig_level) {
+            transformMode = log.pig_level;
+          }
           defaultImageSrc = '/assets/' + gon.pig_name + "-" + gon.pig_level + '-default.png';
           offset += 1;
           more = log.mashi - 1;
@@ -29,5 +34,45 @@ $(document).on('turbolinks:load', function(){
     setTimeout(function(){
       pigImage.attr('src', defaultImageSrc);
     }, 1300);
+  };
+
+  var transform = function () {
+    var beforeImgSrc = '/assets/' + gon.pig_name + "-" + gon.pig_level + '-default.png'
+    var afterImgSrc = '/assets/' + gon.pig_name + "-" + transformMode + '-default.png';
+
+    pigImage.hide();
+    setTimeout(function(){
+      pigImage.show();
+    }, 100);
+    setTimeout(function(){
+      pigImage.hide();
+    }, 200);
+    setTimeout(function(){
+      pigImage.show();
+    }, 300);
+    setTimeout(function(){
+      pigImage.hide();
+    }, 400);
+    setTimeout(function(){
+      pigImage.attr('src', afterImgSrc);
+      pigImage.show();
+    }, 500);
+    setTimeout(function(){
+      pigImage.hide();
+    }, 600);
+    setTimeout(function(){
+      pigImage.show();
+    }, 700);
+    setTimeout(function(){
+      pigImage.hide();
+    }, 800);
+    setTimeout(function(){
+      pigImage.show();
+    }, 900);
+    setTimeout(function(){
+      gon.pig_level = transformMode;
+      defaultImageSrc = afterImgSrc;
+      transformMode = 0;
+    }, 1000)
   };
 });
