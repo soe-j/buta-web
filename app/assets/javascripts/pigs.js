@@ -14,6 +14,8 @@ $(document).on('turbolinks:load', function(){
         if (log) {
           topping = log.topping_name;
           eat();
+          gon.pig_level = log.pig_level;
+          defaultImageSrc = '/assets/' + gon.pig_name + "-" + gon.pig_level + '-default.png';
           offset += 1;
           more = log.mashi - 1;
         }

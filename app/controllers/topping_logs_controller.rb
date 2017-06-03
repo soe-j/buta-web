@@ -21,7 +21,9 @@ class ToppingLogsController < ApplicationController
     if topping_logs.empty?
       render json: nil
     else
-      render json: topping_logs[0]
+      log_hash = topping_logs[0].to_hash
+      log_hash[:pig_level] = pig.level
+      render json: log_hash
     end
   end
 
