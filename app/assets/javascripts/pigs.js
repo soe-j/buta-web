@@ -28,6 +28,6 @@ $(document).on('turbolinks:load', function(){
     pigImage.attr('src', imgSrc);
     setTimeout(function(){
       pigImage.attr('src', defaultImageSrc);
-    }, 1000);
+    }, 1300);
   };
 });
