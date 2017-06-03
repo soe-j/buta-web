@@ -3,13 +3,13 @@ class Pig < ApplicationRecord
 
   def level
     case self.topping_logs.sum(:mashi)
-    when 0...5
+    when 0...3
       1
-    when 5...10
+    when 3...8
       2
-    when 10...30
+    when 8...14
       3
-    when 30...Float::INFINITY
+    when 14...Float::INFINITY
       4
     else
       0
