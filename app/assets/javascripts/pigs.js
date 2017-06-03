@@ -5,6 +5,8 @@ $(document).on('turbolinks:load', function(){
   var more = 0;
   var topping = "";
   var transformMode = 0;
+  var boooSound = $('#booo-sound')[0];
+  var teereSound = $('#teere-sound')[0];
 
   setInterval(function () {
     if (transformMode) {
@@ -41,6 +43,8 @@ $(document).on('turbolinks:load', function(){
     var afterImgSrc = '/assets/' + gon.pig_name + "-" + transformMode + '-default.png';
 
     pigImage.hide();
+    boooSound.play();
+
     setTimeout(function(){
       pigImage.show();
     }, 100);
@@ -72,6 +76,7 @@ $(document).on('turbolinks:load', function(){
     setTimeout(function(){
       gon.pig_level = transformMode;
       defaultImageSrc = afterImgSrc;
+      teereSound.play();
       transformMode = 0;
     }, 1000)
   };
