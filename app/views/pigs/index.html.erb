@@ -1,1 +1,7 @@
-hello world
+<h1>
+  pigs
+</h1>
+
+<% @pigs.each do |pig| %>
+  <%= link_to pig.name, pig_path(pig.name) %>
+<% end %>
