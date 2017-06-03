@@ -26,10 +26,8 @@ $(document).on('turbolinks:load', function(){
   var eat = function () {
     var imgSrc = '/assets/' + gon.pig_name + '-' + gon.pig_level + '-' + topping + '.gif';
     pigImage.attr('src', imgSrc);
-    console.log(topping);
     setTimeout(function(){
       pigImage.attr('src', defaultImageSrc);
-      console.log('default');
     }, 1000);
   };
 });
